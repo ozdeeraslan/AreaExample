@@ -1,0 +1,54 @@
+﻿@using AreaCarouselOrnek.Areas.Admin.Models
+@model YeniSlaytViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Slayt</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Baslik"></label>
+                <input asp-for="Baslik" class="form-control" />
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Aciklama"></label>
+                <textarea asp-for="Aciklama" class="form-control"></textarea>
+                <span asp-validation-for="Aciklama" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Sira"></label>
+                <input asp-for="Sira" type="number" class="form-control" />
+                <span asp-validation-for="Sira" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Resim"></label>
+                <input asp-for="Resim" type="file" class="form-control" />
+                <span asp-validation-for="Resim" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Ekle</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
